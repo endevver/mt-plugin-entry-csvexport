@@ -1,0 +1,19 @@
+name:           Entry CSV Export
+description:    Export full-fidelity entry/page metadata in CSV format from the entry/page listing screen
+version:        0.1.4
+author_name:    Endevver, LLC
+author_link:    http://endevver.com
+id:             EntryCSVExport
+key:            EntryCSVExport
+
+list_actions:
+  entry:
+    csv_export:
+      label: Export as CSV
+      order: 1000
+      handler: $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
+  page:
+    csv_export:
+      label: Export as CSV
+      order: 1000
+      handler: $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
