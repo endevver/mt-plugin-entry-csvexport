@@ -28,7 +28,7 @@ Unzip the download archive. Move the resulting folder to `$MT_HOME/plugins/`
 If you use Git, you can do the following:
 
     cd $MT_HOME/plugins
-    git clone <<FIXME - GitURL>>
+    git clone git@github.com:endevver/mt-plugin-entry-csvexport.git
 
 ## CONFIGURATION ##
 
