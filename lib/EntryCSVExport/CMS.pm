@@ -69,4 +69,55 @@ sub entry_csv_export {
     $app->print( ${ $out->string_ref } );
 }
 
+package MT::Entry;
+
+sub blog_name   { shift()->blog->name   }
+sub author_name { shift()->author->name }
+
+sub creator {
+    my $e      = shift;
+    my $id     = $e->created_by or return;
+    my $author = MT->model('author')->lookup( $id );
+    return $author->name if $author && $author->name;
+}
+sub last_editor {
+    my $e      = shift;
+    my $id     = $e->modified_by or return;
+    my $author = MT->model('author')->lookup( $id );
+    return $author->name if $author && $author->name;
+}
+
+sub primary_category {
+    my $e = shift;
+    require MT::Placement;
+    my ($map) = MT::Placement->search({ entry_id => $e->id, is_primary => 1 })
+        or return;
+
+    require MT::Category;
+    my ($cat) = MT::Category->lookup( $map->category_id );
+    return $cat ? $cat->label : undef;
+}
+
+sub secondary_categories {
+    my $e = shift;
+    require MT::Placement;
+    my @maps = MT::Placement->load({ entry_id => $e->id, is_primary => 0 })
+        or return;
+
+    my @cats;
+    require MT::Category;
+    foreach my $map ( @maps ) {
+        my $cat = MT::Category->load([ $map->category_id ]) or next;
+        push( @cats, $cat->label );
+    }
+    return join( ', ', @cats );
+}
+
+sub tag_names {
+    my $e    = shift;
+    my @tags = map { $_->name } $e->tags or return;
+    MT::Tag->join(', ', @tags );
+}
+
+
 1;
