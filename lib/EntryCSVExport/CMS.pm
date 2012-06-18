@@ -24,7 +24,12 @@ sub entry_csv_export {
     my $csv = Text::CSV->new( { binary => 1, eol => "\n" } );
     my $out = IO::String->new;
 
-    my $cols = $model->column_names;
+    my $cols = [
+        ( grep { ! m/^(category_id|created_by|modified_by|status|tangent_cache|template_id|to_ping_urls|week_number)$/ }
+            @{ $model->column_names } ),
+        qw( blog_name permalink status_text author_name primary_category
+            secondary_categories tag_names creator last_editor )
+    ];
     my %dt_cols = map { $_ => 1 }
         @{ $model->columns_of_type( 'datetime', 'timestamp' ) };
     my @meta_cols = map { $_->{name} } MT::Meta->metadata_by_class($model);
