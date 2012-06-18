@@ -2,7 +2,7 @@ package EntryCSVExport::CMS;
 
 use strict;
 use warnings;
-
+use MT::Entry;
 use MT::Util qw(epoch2ts format_ts);
 
 sub entry_csv_export {
