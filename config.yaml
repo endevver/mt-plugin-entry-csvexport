@@ -17,3 +17,17 @@ list_actions:
       label: Export as CSV
       order: 1000
       handler: $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
+
+page_actions:
+   entry:
+       export_entries_csv:
+           label: Export all entries (CSV)
+           order: 101
+           code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
+           permission: edit_all_posts
+   page:
+       export_pages_csv:
+           label: Export all pages (CSV)
+           order: 101
+           code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
+           permission: edit_all_posts
