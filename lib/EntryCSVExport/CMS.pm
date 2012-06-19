@@ -62,7 +62,7 @@ sub entry_csv_export {
 
     # exporty bits
     my $filename
-        = $entries->[0]->class . "-" . epoch2ts( undef, time ) . ".csv";
+        = $type . "-" . epoch2ts( undef, time ) . ".csv";
     $app->{no_print_body} = 1;
     $app->set_header(
         'Content-Disposition' => "attachment; filename=$filename" );
