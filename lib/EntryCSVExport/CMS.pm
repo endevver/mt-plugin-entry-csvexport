@@ -16,6 +16,7 @@ sub entry_csv_export {
 
     # page or entry?
     my $type    = $app->param('_type');
+    $type =~ s{^list_}{};
     my $model   = $app->model($type);
     my $entries = $model->lookup_multi( \@ids );
 
