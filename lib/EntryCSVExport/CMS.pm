@@ -116,7 +116,7 @@ sub secondary_categories {
 
 sub tag_names {
     my $e    = shift;
-    my @tags = map { $_->name } $e->tags or return;
+    my @tags = $e->tags or return;
     MT::Tag->join(', ', @tags );
 }
 
