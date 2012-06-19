@@ -28,9 +28,10 @@ sub entry_csv_export {
     my $cols = [
         ( grep { ! m/^(category_id|created_by|modified_by|status|tangent_cache|template_id|(ping|comment)_count|to_ping_urls|pinged_urls|week_number)$/ }
             @{ $model->column_names } ),
-        qw( blog_name permalink status_text author_name primary_category
+        qw( blog_name permalink publish_status author_name primary_category
             secondary_categories tag_names creator last_editor )
     ];
+
     my %dt_cols = map { $_ => 1 }
         @{ $model->columns_of_type( 'datetime', 'timestamp' ) };
     my @meta_cols = map { $_->{name} } MT::Meta->metadata_by_class($model);
