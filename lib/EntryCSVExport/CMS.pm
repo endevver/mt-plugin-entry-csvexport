@@ -134,5 +134,10 @@ sub edit_url {
           );
 }
 
+sub publish_status {
+    my $e = shift;
+    return $e->status_text( $e->status );
+}
+
 
 1;
