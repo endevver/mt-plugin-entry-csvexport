@@ -73,7 +73,7 @@ sub entry_csv_export {
 package MT::Entry;
 
 sub blog_name   { shift()->blog->name   }
-sub author_name { shift()->author->name }
+sub author_name { eval { shift()->author->name } }
 
 sub creator {
     my $e      = shift;
