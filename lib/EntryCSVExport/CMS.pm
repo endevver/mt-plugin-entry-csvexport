@@ -18,7 +18,7 @@ sub entry_csv_export {
     my $type    = $app->param('_type');
     $type =~ s{^list_}{};
     my $model   = $app->model($type);
-    my $entries = $model->lookup_multi( \@ids );
+    my $entries = $model->lookup_multi( \@ids ) if @ids;
 
     require Text::CSV;
     require IO::String;
