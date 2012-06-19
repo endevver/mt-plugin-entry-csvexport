@@ -120,5 +120,19 @@ sub tag_names {
     MT::Tag->join(', ', @tags );
 }
 
+sub edit_url {
+    my $e   = shift;
+    my $app = MT->instance;
+    return $app->base
+         . $app->app_uri(
+             mode => 'view',
+             args => {
+                 _type   => $e->class,
+                 blog_id => $e->blog_id,
+                 id      => $e->id
+             }
+          );
+}
+
 
 1;
