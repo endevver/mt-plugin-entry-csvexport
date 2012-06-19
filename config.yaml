@@ -19,13 +19,13 @@ list_actions:
       handler: $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
 
 page_actions:
-   entry:
+   list_entry:
        export_entries_csv:
            label: Export all entries (CSV)
            order: 101
            code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
            permission: edit_all_posts
-   page:
+   list_page:
        export_pages_csv:
            label: Export all pages (CSV)
            order: 101
