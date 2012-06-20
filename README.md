@@ -8,6 +8,8 @@ entry/page metadata.
 
 * Enables full-fidelity export of entry/page data in CSV format for those
   entries/pages selected from the listing screen.
+* Export selected Entries/Pages or all Entries/Pages in a given blog, or
+  system-wide.
 
 ## PLUGIN REQUIREMENTS ##
 
@@ -33,6 +35,20 @@ If you use Git, you can do the following:
 ## CONFIGURATION ##
 
 There is no configuration for this plugin.
+
+## USE ##
+
+At either the blog- or system-level visit Manage > Entries or Manage > Pages.
+
+Export selected Entries/Pages by placing checkmarks next to the items to
+export, then from the "More actions…" drop down select "Export as CSV" then
+click "Go."
+
+Export all Entries/Pages by choosing "Export this blog's entries (CSV)" from
+the Actions topic in the sidebar.
+
+Depending upon the amount of data to export it could take a few minutes until
+you are able to begin downloading the CSV file.
 
 ## HELP, BUGS AND FEATURE REQUESTS ##
 
