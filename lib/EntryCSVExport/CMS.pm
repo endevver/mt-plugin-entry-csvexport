@@ -48,5 +48,12 @@ sub entry_csv_export {
     $app->print( $$out_ref );
 }
 
+sub is_system_context {
+    MT->instance->query->param('blog_id') ? 0 : 1;
+}
+
+sub is_blog_context {
+    MT->instance->query->param('blog_id') ? 1 : 0;
+}
 
 1;

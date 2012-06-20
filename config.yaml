@@ -25,9 +25,23 @@ page_actions:
            order: 101
            code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
            permission: edit_all_posts
+           condition: $EntryCSVExport::EntryCSVExport::CMS::is_system_context
+       export_blog_entries_csv:
+           label: "Export this blog's entries (CSV)"
+           order: 101
+           code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
+           permission: edit_all_posts
+           condition: $EntryCSVExport::EntryCSVExport::CMS::is_blog_context
    list_page:
        export_pages_csv:
            label: Export all pages (CSV)
            order: 101
            code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
            permission: edit_all_posts
+           condition: $EntryCSVExport::EntryCSVExport::CMS::is_system_context
+       export_blog_pages_csv:
+           label: "Export this blog's pages (CSV)"
+           order: 101
+           code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
+           permission: edit_all_posts
+           condition: $EntryCSVExport::EntryCSVExport::CMS::is_blog_context
