@@ -41,7 +41,7 @@ sub is_meta      { shift()->{meta} }
 sub is_date_time { shift()->{date_time} }
 
 # Human readable format for date time columns
-sub datetime_value { MT::Util::format_ts( '%Y-%m-%d %H:%M:%S', +shift ) }
+sub datetime_value { MT::Util::format_ts( '%Y-%m-%d %H:%M:%S', $_[1] ) }
 
 # Escape non-date values that look like a date to force text and not 
 # auto-convert. See:
