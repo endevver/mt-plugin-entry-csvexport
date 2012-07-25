@@ -50,7 +50,7 @@ sub escape_dateish {
     my ( $self, $val ) = @_;
 
     if ($val =~ m!^(\d+[-./])?\d+[-./]\d+! ) {
-        $val = q("="").$val.q(""");
+        $val = q(=").$val.q(");
     }
 
     return $val;
