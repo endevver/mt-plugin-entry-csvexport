@@ -32,7 +32,7 @@ page_actions:
            code:  $EntryCSVExport::EntryCSVExport::CMS::entry_csv_export
            permission: edit_all_posts
            condition: $EntryCSVExport::EntryCSVExport::CMS::is_blog_context
-   list_page:
+   list_pages:
        export_pages_csv:
            label: Export all pages (CSV)
            order: 101
