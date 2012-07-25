@@ -30,20 +30,32 @@ sub value {
                                 : $e->$key;
 
     # Never return undef because it screws up the CSV data
-    return '' if ! defined( $val );
+    return '' unless defined( $val );
 
-    # Human readable format for date time columns
-    $val = format_ts( '%Y-%m-%d %H:%M:%S', $val )
-        if $self->is_date_time;
+    return $self->is_date_time  ? $self->datetime_value( $val )
+                                : $self->escape_dateish( $val );  # HACK
+}
+
+sub is_meta      { shift()->{meta} }
+
+sub is_date_time { shift()->{date_time} }
+
+# Human readable format for date time columns
+sub datetime_value { MT::Util::format_ts( '%Y-%m-%d %H:%M:%S', +shift ) }
+
+# Escape non-date values that look like a date to force text and not 
+# auto-convert. See:
+# http://stackoverflow.com/questions/165042/stop-excel-from-automatically-converting-certain-text-values-to-dates
+sub escape_dateish {
+    my ( $self, $val ) = @_;
+
+    if ($val =~ m!^(\d+[-./])?\d+[-./]\d+! ) {
+        $val = q("="").$val.q(""");
+    }
 
     return $val;
 }
 
-sub is_meta      { shift()->{meta}      }
-
-sub is_date_time { shift()->{date_time} }
-
 1;
-
 
 __END__
