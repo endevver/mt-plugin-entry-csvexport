@@ -11,7 +11,7 @@ entry/page metadata.
 
 ## Prerequisites
 
-* Movable Type v4.3x or 5.x
+* Movable Type v4.3x, 5.x, 6.x
 
 ## Installation
 
