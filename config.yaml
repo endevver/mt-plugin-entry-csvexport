@@ -1,6 +1,6 @@
 name:           Entry CSV Export
 description:    Export full-fidelity entry/page metadata in CSV format from the entry/page listing screen
-version:        1.0.2
+version:        1.0.3
 author_name:    Endevver, LLC
 author_link:    http://endevver.com
 id:             EntryCSVExport
