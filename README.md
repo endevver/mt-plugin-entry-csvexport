@@ -11,7 +11,9 @@ entry/page metadata.
 
 ## Prerequisites
 
-* Movable Type v4.3x, 5.x, 6.x
+* Movable Type 6.1+
+* Movable Type v4.3x, 5.x, 6.0.x are supported with version
+  [1.0.3](https://github.com/endevver/mt-plugin-entry-csvexport/releases/tag/v1.0.3).
 
 ## Installation
 

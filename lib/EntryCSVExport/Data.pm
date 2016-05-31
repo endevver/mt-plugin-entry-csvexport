@@ -260,8 +260,7 @@ sub edit_url {
 sub status_as_text {
     my $e     = shift;
     my $class = MT->model( $e->class );
-    my $meth  = $class->can('status_text') or return;
-    $meth->( $e->status );
+    return $class->status_text( $e->status );
 }
 
 
