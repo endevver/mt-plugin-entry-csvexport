@@ -258,9 +258,8 @@ sub edit_url {
 }
 
 sub status_as_text {
-    my $e     = shift;
-    my $class = MT->model( $e->class );
-    return $class->status_text( $e->status );
+    my $e = shift;
+    return MT::Entry::status_text( $e->status );
 }
 
 
